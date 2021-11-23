@@ -1,0 +1,87 @@
+<head>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+		body {
+		
+			background-image: url('data/bg4.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+		}
+		div.top-content{
+			position: relative;
+			margin-left: 30%;
+			margin-right: 30%;
+			margin-top: 5%;
+  			border: 3px black;
+			background-color: rgba(5, 5, 5, 0.4);
+			padding: 7;
+			border-radius: 20px;
+		}
+		div.side-note{
+			position:relative;
+			text-align: center;
+			font-family: Consolas;
+			color: black;
+			font-size: 120%;
+			font-weight: bold;
+		}
+		h1 {
+			color: white;
+			font-family: Consolas;
+			font-weight: bold;
+			text-align: center;
+		}
+		p {
+		color: darkgreen;
+		font-size: 120%;
+		font-weight: bold;
+		}
+
+		.log {
+			color: grey;
+		}
+		button {
+			color: white;
+			background-color: black;
+			border-radius: 10px;
+			font-family: Consolas;
+			padding: 50 50 150 50;
+			margin-left: 20;
+			margin-right: 20;
+		}
+		div.button-container {
+			position: relative;
+			padding: 50;
+			text-align: center;
+		}
+		.icon-play{
+  background-image : url(./webbackground.jpg);
+  background-size: cover;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<div class="jumbotron text-center">
+		<h1>Black Friday Sale</h1>
+		<p>Top black friday sale products</p> 
+	  </div>
+</head>
+<body>
+	<!-- <div id="del" class="side-note">Choose the Product you are interested in</div> -->
+	
+
+	<div class="button-container">
+		<a href="http://localhost:8080/content?company=1"><button type="button" style="background: url(data/grocery.jpg) ; color:gold;"  id="Company 1"> GROCERY </button></a>
+		<a  href="http://localhost:8080/content?company=2"><button type="button" style="background: url(data/mobiles.jpg); color:gold;" id="Company 2"> MOBILES </button></a>
+		<a  href="http://localhost:8080/content?company=3"><button type="button" style="background: url(data/tv.jpg); color:gold;" id="Company 3"> LCD & LED TV  </button></a>
+		<a  href="http://localhost:8080/content?company=4"><button type="button" style="background: url(data/shoes.jpg); color:gold;" id="Company 4"> FOOTWEAR </button></a>
+	</div>
+</body>

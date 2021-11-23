@@ -1,0 +1,139 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('data/bg1.jpg');
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+        }
+        button {
+			color: white;
+            background-color: black;
+			border-radius: 10px;
+            padding: 10;
+			font-family: Consolas;
+			
+		}
+        #left {
+            float: left;
+            background-color: rgba(5, 5, 5, 0.4);
+            width: 45%;
+            margin-right: 10;
+            margin-left: 10;
+            height: 100%;
+            border-radius: 100px;
+        }
+        #right {
+            float: right;
+            background-color: rgba(5, 5, 5, 0.4);
+            width: 45%;
+            margin-right: 10;
+            margin-left: 10;
+            height: 100%;
+            border-radius: 100px;
+        }
+        #title {
+            margin-top: 20;
+            text-align: center;
+            color: white;
+            font-family: Consolas;
+			font-weight: bold;
+            font-size: 40;
+        }
+        #basicinfo {
+            color:white;
+            margin: 50;
+            text-align: center;
+        }
+        #form {
+            padding: 100;
+            color: white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function recordCommit(element) {
+            var dt = new Date();
+			var utcDate = dt.toUTCString();
+			var ip;
+            var fname = document.getElementById("fname").value;
+           
+            // var log={"Search term":fname,"Date:":utcDate};
+
+            var log = '{"searchTerm": "'+ fname +'", '
+                + '"time": "'+utcDate+'", ';
+            $.ajax({
+                url: "http://localhost:8080/",
+                data: log,
+                type: "POST",
+                dataType: "data"
+            })
+            window.location.href = "http://localhost:8080/";
+        }
+        // function imageSelect(){
+        //     // var para = new URLSearchParams(window.location.search);
+        //     // var image=para.get("company");
+        //     // image='data/'+image+'.jpg'
+        //     // return image
+        //     var img = document.createElement('img');
+        //     img.src = 'data/1.jpg';
+        //     document.getElementById('body').appendChild(img);
+        //     down.innerHTML = "Image Element Added."; 
+        // }
+        function imageSelect(){
+            var pagetitle=document.getElementById('title').textContent;
+            console.log("check5:",'data'+document.getElementById('title').textContent+'.jpg');
+            var dummy= 'data/'+document.getElementById('title').textContent+'.jpg';
+            console.log("2ndcheck:",dummy );
+            
+        document.getElementById("picture").setAttribute("src",dummy);
+        if (pagetitle=="1"){
+            document.getElementById("description").innerHTML="GROCERIES AT BEST RATE";
+        }
+        else if (pagetitle=="2"){
+            document.getElementById("description").innerHTML="CHEAPEST MOBILE PHONE PRICES";
+        }
+        else if (pagetitle=="3"){
+            document.getElementById("description").innerHTML="LATEST ANDROID AND 4K TVS AT 30% OFF";
+        }
+        else{
+            document.getElementById("description").innerHTML="HAPPY SHOES, HAPPIER YOU, AT HAPPIEST PRICES ";
+
+        }
+        }
+    </script>
+</head>
+<body onload="imageSelect()">
+    
+    <div id="left">
+        <div id="title">.</div>
+        <br><br>
+        <!-- <div id="description"><h1>.</h1></div> -->
+        <div id= "description" style="text-align: center; font-size:xx-large;color:white;">
+            <p>.</p>
+            
+          </div>
+          <br><br><br><br>
+        <img id='picture' src ="data/1.jpg" style="width: 100%;"/>
+        <!-- <div id='imageurl'></div> -->
+    </div>
+    <div id="right">
+        <div id="form">
+            <div class="text-center"><h1>PRODUCT SEARCH</h1></div>
+
+            <br><br><br><br>
+
+            <input class="form-control" placeholder="Product Name ..." type="text" id="fname" style="width: 65%; height:5%;"><br><br><br><br>
+            <button onclick="recordCommit(this)">SEARCH</button>
+        </div>
+    </div>
+
+    
+    <script>
+        var para = new URLSearchParams(window.location.search);
+        document.getElementById("title").innerHTML = para.get("company");
+        
+    </script>
+</body>
